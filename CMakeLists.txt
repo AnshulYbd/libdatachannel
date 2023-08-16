@@ -4,6 +4,10 @@ project(libdatachannel
 	LANGUAGES CXX)
 set(PROJECT_DESCRIPTION "C/C++ WebRTC network library featuring Data Channels, Media Transport, and WebSockets")
 
+SET( CMAKE_EXE_LINKER_FLAGS   "-ldl")
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC -pthread")
+SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fPIC -pthread")
+
 # Options
 option(USE_MBEDTLS "Use Mbed TLS instead of OpenSSL" OFF)
 option(USE_GNUTLS "Use GnuTLS instead of OpenSSL" OFF)
@@ -294,6 +298,8 @@ target_include_directories(datachannel-static PUBLIC
     $<INSTALL_INTERFACE:include>)
 target_include_directories(datachannel-static PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include/rtc)
 target_include_directories(datachannel-static PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src)
+target_include_directories(datachannel-static PUBLIC ${OPENSSL_ROOT_DIR}/include)
+
 target_link_libraries(datachannel-static PRIVATE Threads::Threads)
 target_link_libraries(datachannel-static PRIVATE Usrsctp::Usrsctp plog::plog)
 
@@ -382,11 +388,21 @@ else()
             endif()
 		endif()
 	endif()
-	find_package(OpenSSL REQUIRED)
+	#find_package(OpenSSL REQUIRED)
 	target_compile_definitions(datachannel PRIVATE USE_GNUTLS=0)
 	target_compile_definitions(datachannel-static PRIVATE USE_GNUTLS=0)
-	target_link_libraries(datachannel PRIVATE OpenSSL::SSL)
-	target_link_libraries(datachannel-static PRIVATE OpenSSL::SSL)
+
+# 	set(OPENSSL_CRYPTO_LIBRARY "${OPENSSL_ROOT_DIR}/lib/libcrypto.a" CACHE FILEPATH "" FORCE)
+# set(OPENSSL_SSL_LIBRARY "${OPENSSL_ROOT_DIR}/lib/libssl.a" CACHE FILEPATH "" FORCE)
+# message ( ${OPENSSL_CRYPTO_LIBRARY})
+# message ( ${OPENSSL_SSL_LIBRARY})
+
+	add_library(libssl   STATIC IMPORTED)
+	add_library(libcrypto STATIC IMPORTED)
+	set_property(TARGET libssl    PROPERTY IMPORTED_LOCATION "${OPENSSL_ROOT_DIR}/lib/libssl.a" )
+	set_property(TARGET libcrypto PROPERTY IMPORTED_LOCATION "${OPENSSL_ROOT_DIR}/lib/libcrypto.a" )
+	target_link_libraries(datachannel PUBLIC libssl libcrypto pthread)
+	target_link_libraries(datachannel-static PUBLIC libssl libcrypto pthread)
 endif()
 
 if (USE_NICE)
