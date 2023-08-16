@@ -1,9 +1,10 @@
 build/
+BuildTools/cmake-3.24-win
+toolchains/
 node_modules/
 output/
 *.d
 *.o
-*.a
 *.so
 *.pyc
 *.pyo

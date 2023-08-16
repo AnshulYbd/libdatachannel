@@ -6,8 +6,7 @@ SET(BUILD_TOOL_ROOT_PATH "${CMAKE_SOURCE_DIR}/toolchains/gcc-linaro-7.5.0-2019.1
 SET(sysroot_target  "${BUILD_TOOL_ROOT_PATH}/arm-linux-gnueabihf/libc" )
 SET(tools           "${BUILD_TOOL_ROOT_PATH}/bin" )
 
-#SET (OPENSSL_ROOT_DIR "D:/toolchains/openssl-hf/openssl311")
-SET (OPENSSL_ROOT_DIR "D:/MySpace/Projects/libdatachannel-gcc7/openssl-cmake/crossbuilt7.5")
+SET (OPENSSL_ROOT_DIR "${CMAKE_SOURCE_DIR}/openssl-cmake")
 
 SET(CMAKE_C_COMPILER    "${BUILD_TOOL_ROOT_PATH}/bin/arm-linux-gnueabihf-gcc.exe" )
 SET(CMAKE_CXX_COMPILER  "${BUILD_TOOL_ROOT_PATH}/bin/arm-linux-gnueabihf-g++.exe" )
