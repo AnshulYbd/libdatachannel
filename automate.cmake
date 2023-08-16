@@ -2,11 +2,12 @@ SET(CMAKE_SYSTEM_NAME     Linux)
 SET(CMAKE_SYSTEM_PROCESSOR armv7l)
 SET(CMAKE_SYSTEM_VERSION 1)
 SET(CMAKE_CROSSCOMPILING TRUE)
-SET(BUILD_TOOL_ROOT_PATH "${CMAKE_SOURCE_DIR}/toolchains/gcc-linaro-7.5.0-2019.12-i686-mingw32_arm-linux-gnueabihf" )
-SET(sysroot_target  "${BUILD_TOOL_ROOT_PATH}/arm-linux-gnueabihf/libc" )
-SET(tools           "${BUILD_TOOL_ROOT_PATH}/bin" )
 
-SET (OPENSSL_ROOT_DIR "${CMAKE_SOURCE_DIR}/openssl-cmake")
+SET(BUILD_TOOL_ROOT_PATH "${CMAKE_CURRENT_LIST_DIR}/toolchains/gcc-linaro-7.5.0-2019.12-i686-mingw32_arm-linux-gnueabihf" )
+SET(sysroot_target  	 "${BUILD_TOOL_ROOT_PATH}/arm-linux-gnueabihf/libc" )
+SET(tools           	 "${BUILD_TOOL_ROOT_PATH}/bin" )
+
+SET (OPENSSL_ROOT_DIR "${CMAKE_CURRENT_LIST_DIR}/openssl_cmake_crossbuilt7.5")
 
 SET(CMAKE_C_COMPILER    "${BUILD_TOOL_ROOT_PATH}/bin/arm-linux-gnueabihf-gcc.exe" )
 SET(CMAKE_CXX_COMPILER  "${BUILD_TOOL_ROOT_PATH}/bin/arm-linux-gnueabihf-g++.exe" )
