@@ -429,8 +429,6 @@ else()
 	endif()
 endif()
 
-add_subdirectory(deps/openssl-cmake EXCLUDE_FROM_ALL)
-
 if(CAPI_STDCALL)
 	target_compile_definitions(datachannel PUBLIC CAPI_STDCALL)
 	target_compile_definitions(datachannel-static PUBLIC CAPI_STDCALL)

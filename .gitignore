@@ -1,6 +1,4 @@
 build/
-BuildTools/
-toolchains/
 node_modules/
 output/
 *.d

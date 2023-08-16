@@ -13,7 +13,7 @@
 	path = deps/json
 	url = https://github.com/nlohmann/json.git
 	shallow = true
-[submodule "deps/openssl-cmake"]
-	path = deps/openssl-cmake
-	url = https://github.com/AnshulYbd/openssl-cmake.git
+[submodule "deps/libsrtp"]
+	path = deps/libsrtp
+	url = https://github.com/cisco/libsrtp.git
 	shallow = true
