@@ -4,8 +4,8 @@ project(libdatachannel
 	LANGUAGES CXX)
 set(PROJECT_DESCRIPTION "C/C++ WebRTC network library featuring Data Channels, Media Transport, and WebSockets")
 
-SET( CMAKE_EXE_LINKER_FLAGS   "-ldl")
-SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC -pthread")
+SET( CMAKE_EXE_LINKER_FLAGS   "-ldl -Wl,-rpath=/root/glibc2_25/lib")
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}  -fPIC -pthread" )
 SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fPIC -pthread")
 
 # Options
