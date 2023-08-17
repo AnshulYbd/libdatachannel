@@ -81,6 +81,12 @@ rm -rf $root_dir/cmake_linux_build_release
 #fix for non executable cloned binary on linux
 chmod +x $root_dir/BuildTools/CMake-3.26-x86_64/bin/cmake
 cd $root_dir
+
+git submodule update --init --recursive --depth 1
+cp  .\BuildTools\libsrtp_CMakeLists.txt .\deps\libsrtp\CMakeLists.txt
+cp /Y .\BuildTools\usrsctp_CMakeLists.txt .\deps\usrsctp\CMakeLists.txt
+
+
 cmake -B cmake_linux_build_release -DUSE_GNUTLS=0 -DUSE_NICE=0 -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release -DCMAKE_TOOLCHAIN_FILE=automate.cmake
 cd ./cmake_linux_build_release
 cmake --build .
