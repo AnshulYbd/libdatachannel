@@ -52,22 +52,11 @@ DownloadToolChainTar()
 }
 ValidateLocalToolChain()
 {
-    if [ -f "$GCC_TAR_PATH" ] 
-    then
-        echo "ValidateLocalToolChain - tar ball exists $GCC_TAR_PATH" 
-        chksum=($(md5sum $GCC_TAR_PATH))
-        echo $chksum - current
-        echo $GCC_TAR_MD5 - required
-        if [ $chksum = $GCC_TAR_MD5 ]
-        then
-            #echo Good tar file
-            return
-        else
-            echo bad tar file
-        fi
-    fi
-    CleanExistingToolChainSetup
-    DownloadToolChainTar
+	echo gccpath = $GCC_PATH
+	if [ -d $GCC_PATH ]; then
+    	return
+	fi
+	DownloadToolChainTar
     echo Extraction in progress
     tar xf $GCC_TAR_PATH --checkpoint=.100
     echo $GCC_NAME toolchain deployed successfully. 
