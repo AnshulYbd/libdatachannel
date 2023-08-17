@@ -7,6 +7,7 @@ set TARGET_ARCH=arm-linux-gnueabihf
 @REM set GCC_NAME=gcc-linaro-7.5.0-2019.12-i686-mingw32_%TARGET_ARCH%
 set GCC_NAME=gcc-arm-10.3-2021.07-mingw-w64-i686-arm-none-linux-gnueabihf
 set GCC_PREFIX=arm-none-linux-gnueabihf
+set GCC_BIN_EXTN=.exe
 
 set GCC_REGULAR_PATH=%root_dir%\toolchains\%GCC_NAME%
 if exist "%GCC_REGULAR_PATH%" (

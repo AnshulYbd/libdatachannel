@@ -1,4 +1,5 @@
 build/
+cmake_linux_build_release/
 build*/
 BuildTools/cmake-3.24-win
 toolchains/
