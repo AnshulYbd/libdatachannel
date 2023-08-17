@@ -44,7 +44,7 @@ DownloadToolChainTar()
         echo "Downloading tar ball"
         # wget https://releases.linaro.org/components/toolchain/binaries/5.4-2017.01/arm-linux-gnueabihf/$GCC_NAME.tar.xz
 		#wget https://snapshots.linaro.org/gnu-toolchain/11.3-2022.06-1/arm-linux-gnueabihf/$GCC_NAME.tar.xz
-		wget https://armkeil.blob.core.windows.net/developer/Files/downloads/gnu-a/10.3-2021.07/binrel/$GCC_NAME.tar.xz
+		wget --no-check-certificate https://armkeil.blob.core.windows.net/developer/Files/downloads/gnu-a/10.3-2021.07/binrel/$GCC_NAME.tar.xz
     else
         echo "Secure copying tar ball from anshuly@192.168.1.10"
         sshpass5 -p $BUILDSERVER_PASS scp -o StrictHostKeyChecking=no anshuly@192.168.1.10:/home/anshuly/toolchain/linaro541/$GCC_NAME.tar.xz .
