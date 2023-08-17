@@ -1,7 +1,7 @@
 echo off
 set root_dir=%cd%
 path|find "%root_dir%\BuildTools\7z-win"    >nul || set path=%path%;%root_dir%\BuildTools\7z-win
-
+set EXRACT_BIN="7z.exe"
 
 set TARGET_ARCH=arm-linux-gnueabihf
 @REM set GCC_NAME=gcc-linaro-7.5.0-2019.12-i686-mingw32_%TARGET_ARCH%
@@ -22,7 +22,7 @@ if exist "%GCC_REGULAR_PATH%" (
         @REM wget https://releases.linaro.org/components/toolchain/binaries/latest-7/arm-linux-gnueabihf/gcc-linaro-7.5.0-2019.12-i686-mingw32_arm-linux-gnueabihf.tar.xz
 		wget https://armkeil.blob.core.windows.net/developer/Files/downloads/gnu-a/10.3-2021.07/binrel/gcc-arm-10.3-2021.07-mingw-w64-i686-arm-none-linux-gnueabihf.tar.xz
     )
-	set EXRACT_BIN="7z.exe"
+
 	%EXRACT_BIN% x %GCC_NAME%.tar.xz -so | %EXRACT_BIN% x -si -y -ttar
 )
 
