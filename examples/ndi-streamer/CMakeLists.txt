@@ -48,7 +48,6 @@ find_package(Threads REQUIRED)
 #SHARED libraries
 SET(3RD_PARTY           ${BD_THIRD_PARTY})
 target_include_directories(ndi-streamer PRIVATE ${3RD_PARTY}/include/ndi )
-message ( "ndi stream ---- " ${3RD_PARTY}/include/ndi)
 SET(LIBS_3RD_PARTY_AVAHI_PATH      ${3RD_PARTY}/arm-linux-gnueabihf/Avahi)
 add_library(libdbus1 STATIC IMPORTED)
 set_property(TARGET libdbus1 PROPERTY IMPORTED_LOCATION ${LIBS_3RD_PARTY_AVAHI_PATH}/libdbus-1.a)

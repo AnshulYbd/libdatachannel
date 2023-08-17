@@ -1,0 +1,6 @@
+[
+    {
+        "name": "ARM-10.3-2021.07-mingw-w64-i686-arm-none-linux-gnueabihf - Anshul",
+        "toolchainFile": "${workspaceFolder}/mingw.cmake"
+    }
+]

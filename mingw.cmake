@@ -2,7 +2,8 @@ SET(CMAKE_SYSTEM_NAME     	Linux)
 SET(CMAKE_SYSTEM_PROCESSOR 	armv7l)
 SET(CMAKE_SYSTEM_VERSION 	1)
 SET(CMAKE_CROSSCOMPILING 	TRUE)
-SET(BUILD_TOOL_ROOT_PATH	"D:/toolchains/gcc-arm-10.3-2021.07-mingw-w64-i686-arm-none-linux-gnueabihf" )
+#SET(BUILD_TOOL_ROOT_PATH	"${CMAKE_CURRENT_LIST_DIR}/toolchains/gcc-arm-10.3-2021.07-mingw-w64-i686-arm-none-linux-gnueabihf" )
+SET(BUILD_TOOL_ROOT_PATH	"D:/toolchains/gcc-arm-10.3-2021.07-mingw-w64-i686-arm-none-linux-gnueabihf" ) #hardcoding for vscode support
 SET(BUILD_GCC_PREFIX 		arm-none-linux-gnueabihf )
 
 #SET(BUILD_TOOL_ROOT_PATH 	"D:/toolchains/gcc-linaro-7.5.0-2019.12-i686-mingw32_arm-linux-gnueabihf" )

@@ -67,6 +67,7 @@ void FileParser::loadNextSample() {
 		{
 		case NDIlib_frame_type_video:
 		{
+			cout <<"\n N="<< video_frame.frame_rate_N;
 			NDIlib_compressed_packet_t VideoFrameCompressedPacket;
 			memcpy(&VideoFrameCompressedPacket, video_frame.p_data, sizeof(NDIlib_compressed_packet_t));
 			auto DataSize = VideoFrameCompressedPacket.data_size + VideoFrameCompressedPacket.extra_data_size;

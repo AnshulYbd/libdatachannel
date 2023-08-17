@@ -1,5 +1,6 @@
 build/
 cmake_linux_build_release/
+cmake_win_build_release/
 toolchains/
 node_modules/
 output/
